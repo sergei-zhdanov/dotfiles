@@ -5,3 +5,4 @@
 .vimrc
 .config/i3status/config
 .config/termite/config
+.config/qutebrowser/autoconfig.yml
