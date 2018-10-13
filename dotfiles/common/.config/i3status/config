@@ -1,0 +1,195 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+        color_good = "#2AA198"
+        color_bad = "#586E75"
+        color_degraded = "#DC322F"
+}
+
+# order += "i3block pomodoro"
+# order += "pomodoro"
+# order += "online_status"
+order += "imap"
+order += "arch_updates"
+order += "battery_level"
+# order += "keyboard_layout"
+order += "scratchpad_counter"
+# order += "battery all"
+order += "clock"
+order += "weather_yahoo"
+
+# order += "cpu_usage"
+# order += "load"
+# order += "disk /"
+# order += "disk /home"
+# order += "wireless _first_"
+# order += "ethernet _first_"
+# order += "load"
+# order += "tztime local"
+# order += "ipv6"
+
+#cpu_usage {
+#        format = " cpu  %usage "
+#}
+#
+#load {
+#        format = " load %1min "
+#        # max_threshold = 0.3
+#}
+#
+#disk "/" {
+#        # format = " hdd %avail "
+#        format = " ⛁ %avail "
+#}
+#
+#ethernet _first_ {
+## if you use %speed, i3status requires root privileges
+#        format_up = " lan: %ip %speed "
+#        format_down = " no lan "
+#}
+#
+#battery all {
+#        # format = "%status %percentage %remaining %emptytime"
+#        format = "%status%percentage"
+#        format_down = "No battery"
+#        last_full_capacity = true
+#        integer_battery_capacity = true
+##       status_chr = ""
+#        status_chr = ""
+#        # status_bat = "bat"
+##       status_bat = "☉"
+#        status_bat = ""
+##       status_bat = ""
+#        # status_unk = "?"
+#        status_unk = ""
+##       status_full = ""
+#        status_full = ""
+##       status_full = ""
+#        low_threshold = 15
+#        threshold_type = time
+#	separator_block_width = 15
+#	separator = false
+#}
+#
+#tztime local {
+#        # format = "%Y-%m-%d %H:%M:%S"
+#        #format = " %d.%m.%Y  %H:%M "
+#        format = "%a, %d %b.  %H:%M " 
+##	separator = false
+##	separator_block_width = 15
+#}
+#
+#pomodoro {
+#	display_bar = False
+#	format = "{mmss} "
+#	timer_pomodoro = 900
+#	timer_long_break = 300
+#	sound_pomodoro_start = "~/Dropbox/hangout_message.ogg"
+#	sound_pomodoro_end = "~/Dropbox/hangout_message.ogg"
+#}
+#
+weather_yahoo {
+	cache_timeout = 3600
+	woeid = 2108210
+	format_today = "{temp}°C"
+    	forecast_days = 0
+	icon_cloud = ''
+	icon_rain = ''
+	icon_sun = ''
+	icon_snow = ''
+#	separator = false
+	separator_block_width = 15
+}
+#
+arch_updates {
+	format = '[{total}]'
+	cache_timeout = 600
+	hide_if_zero = True
+	include_aur = True
+	separator = false
+	separator_block_width = 15
+}
+#
+#keyboard_layout {
+#	format = '{layout}'
+#	cache_timeout = 1
+#	color_ru = "#FFFFFF"
+#	color_us = "#FFFFFF"
+#	separator = false
+#	separator_block_width = 15
+#}
+#
+#online_status {
+#	icon_on = ''
+#	icon_off = ''
+#	timeout = 10
+#	url = 'google.com'
+#}
+#
+#i3block pomodoro {
+#	command = "tomaatti"
+#	interval = 1
+#
+##	command= '~/projects/i3-pomodoro/block.sh'
+##	signal = 2
+##	interval = 'once'
+#}
+#
+battery_level {
+	battery_id = "all"
+	measurement_mode = "sys"
+	blocks = ''
+#	blocks = ''
+	format = "{icon}.{percent}"
+	color_good = "#ffffff"
+	color_bad = "#ff0000"
+	color_charging = "#ffffff"
+	color_degraded = "#ffffff"
+#	charging_character = ' '
+	charging_character = ''
+	threshold_bad = 10
+	notification = False
+	notify_low_level = False
+#	format_notify_discharging = '{percent}%'
+	separator = false
+	separator_block_width = 15
+	hide_when_full = True
+}
+#
+clock {
+        format_time = "%a, %d %b. %H:%M" 
+	separator = false
+	separator_block_width = 15
+}
+#
+imap { 
+	format = '{unseen}'
+	hide_if_zero = True
+	color_new_mail = "#ffffff"
+	password = shukmxucgicjchii
+#	port: number to use (default '993')
+#	security: login authentication method: 'ssl' or 'starttls'
+	server  = 'imap.gmail.com'
+	user = 'ser.zhdanov@gmail.com'
+#	cache_timeout = 600
+	separator = false
+	separator_block_width = 15
+#	separator_block_width = 3
+}
+#
+scratchpad_counter {
+	hide_when_none = True
+#	format = "⌫{counter}"
+	format = "{counter}"
+	cache_timeout = 20
+	separator_block_width = 15
+	separator = false
+}

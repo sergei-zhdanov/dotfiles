@@ -1,0 +1,12 @@
+[options]
+clickable_url = true
+#font = Inconsolata Awesome 15
+#font = xos4 Terminus 12px
+font = Roboto Mono 13 
+scrollback_lines = -1
+
+[colors]
+background = rgba(8, 4, 6, 0.8)
+#foreground = #ff0000
+cursor = #44ff44
+cursor_foreground = #ffffff

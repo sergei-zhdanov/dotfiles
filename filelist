@@ -1,0 +1,7 @@
+.config/i3pystatus/config.py
+.i3/config
+.bashrc
+.muttrc
+.vimrc
+.config/i3status/config
+.config/termite/config
