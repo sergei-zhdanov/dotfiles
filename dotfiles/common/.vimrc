@@ -35,12 +35,12 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'vim-scripts/ruscmd'
-Plugin 'godlygeek/tabular'
+"Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'lervag/vimtex'
-Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'lervag/vimtex'
+"Plugin 'vim-pandoc/vim-pandoc'
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-scripts/vim-punto-switcher'
 "Plugin 'neomake/neomake'
@@ -83,7 +83,7 @@ set number relativenumber
 
 " colorscheme desert
 
-syntax on
+"syntax on
 
 let maplocalleader = "\\"
 
@@ -93,22 +93,32 @@ set wm=2
 set lbr
 
 set nofoldenable
-autocmd Filetype tex setlocal nofoldenable
+"autocmd Filetype tex setlocal nofoldenable
 
 :nnoremap "" ciw""<Esc>P
 :nnoremap '' ciw''<Esc>P
 ":nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 
-let g:vimtex_fold_manual = 0
-let g:vimtex_fold_enabled = 0
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_complete_close_braces = 1
+"let g:vimtex_fold_manual = 0
+"let g:vimtex_fold_enabled = 0
+"let g:vimtex_view_method = 'zathura'
+"let g:vimtex_complete_close_braces = 1
+"
+"let g:airline_theme='murmur'
+"let g:airline_powerline_fonts=1
 
-let g:airline_theme='murmur'
-let g:airline_powerline_fonts=1
-set ttimeoutlen=1
-set noshowmode
+set ttimeoutlen=0 timeoutlen=1000
+
+"set noshowmode
+
+"set ttimeoutlen=10
+"
+"augroup FastEscape
+"    autocmd!
+"    au InsertEnter * set timeoutlen=0
+"    au InsertLeave * set timeoutlen=1000
+"augroup END
 
 let g:pandoc#spell#enabled=0
 "let g:pandoc#spell#default_langs='ru'
-let g:pandoc#modules#disabled = ["formatting"]
+let g:pandoc#modules#disabled = ["formatting", "folding"]

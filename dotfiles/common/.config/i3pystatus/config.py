@@ -1,5 +1,5 @@
 from i3pystatus import Status
-from i3pystatus.weather import weathercom
+#from i3pystatus.weather import weathercom
 from i3pystatus.updates import pacman, cower
 from i3pystatus.mail import imap
 
@@ -11,23 +11,32 @@ status = Status(
     )
 
 
-status.register(
-    'weather',
-    format='{current_temp}{temp_unit}',
-    colorize=False,
-    backend=weathercom.Weathercom(
-        location_code='RSVR1844:1:RS',
-        units='metric',
-        ),
+#status.register("weather",
+#    format='{current_temp}{temp_unit}[ {update_error}]',
+#    colorize=False,
+#    interval=900,
+#    backend=weathercom.Weathercom(
+#        location_code='RSVR1844:1:RS',
+#        units='metric',
+#        update_error='шайтан!',
+#        ),
+#    hints = {"separator": False, "separator_block_width": 15},
+#    )
+
+
+status.register("shell",
+    command='shaman -l voronezh -m -f %t\°C',
+    interval=1800,
+#    ignore_empty_stdout=True,
+    error_color='#ffffff',
     hints = {"separator": False, "separator_block_width": 15},
     )
-
 
 # Displays clock like this:
 # Tue 30 Jul 11:59:46 PM KW31
 #                          ^-- calendar week
 status.register("clock",
-    format="%a %d %b. %H:%M",
+    format="%a %-d %b. %H:%M",
     #"%a %-d %b %X KW%V",)
     hints = {"separator": False, "separator_block_width": 15},
     )
@@ -60,7 +69,7 @@ status.register("battery",
     hints = {"separator": False, "separator_block_width": 15},
     )
 
-#
+
 #status.register("scratchpad",
 #    format = "{number}",
 #    always_show=False,
@@ -69,15 +78,26 @@ status.register("battery",
 #    )
 
 
-status.register("mail",
-        	format = '{unread}',
-                backends=[imap.IMAP(
-                    host="imap.gmail.com", username="ser.zhdanov@gmail.com",
-                    password="shukmxucgicjchii")],
-                color_unread='#ffffff',
-                hints = {"separator": False, "separator_block_width": 15},
-                )
+#status.register("mail",
+#        	format = '{unread}',
+#        	format_plural = '{unread}',
+#                backends=[imap.IMAP(
+#                    host="imap.gmail.com", ssl=True, username="ser.zhdanov@gmail.com",
+#                    password="shukmxucgicjchii")],
+#                color_unread='#ffffff',
+#                interval=900,
+#                hints = {"separator": False, "separator_block_width": 15},
+#                )
+#
 
+status.register("shell",
+    format = '{output}',
+    command='curl -u "ser.zhdanov@gmail.com":"shukmxucgicjchii" --silent "https://mail.google.com/mail/feed/atom" |  grep -oPm1 "(?<=<title>)[^<]+" | sed "1d" | wc -l',
+    interval=900,
+#    ignore_empty_stdout=True,
+    error_color='#ffffff',
+    hints = {"separator": False, "separator_block_width": 15},
+    )
 
 status.register("updates",
                 format = "{count}",
@@ -89,12 +109,16 @@ status.register("updates",
                 )
 
 
-#status.register("pomodoro",
-#        format="{time}",
-#        pomodoro_duration=20,
-#        break_duration=10,
-#        sound="~/Dropbox/sound.ogg",
-#        )
+status.register("pomodoro",
+        sound="/home/sergei/Dropbox/bell.wav",
+#        format="[{time}]",
+        format="{time}",
+        format_break="{time}",
+        pomodoro_duration=900,
+        break_duration=300,
+        long_break_duration=300,
+        hints = {"separator": False, "separator_block_width": 15},
+        )
 
 
 status.run()

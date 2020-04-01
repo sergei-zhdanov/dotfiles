@@ -23,8 +23,9 @@ order += "battery_level"
 # order += "keyboard_layout"
 order += "scratchpad_counter"
 # order += "battery all"
-order += "clock"
+order += "tztime local"
 order += "weather_yahoo"
+#order += "clock"
 
 # order += "cpu_usage"
 # order += "load"
@@ -79,13 +80,13 @@ order += "weather_yahoo"
 #	separator = false
 #}
 #
-#tztime local {
-#        # format = "%Y-%m-%d %H:%M:%S"
-#        #format = " %d.%m.%Y  %H:%M "
-#        format = "%a, %d %b.  %H:%M " 
-##	separator = false
-##	separator_block_width = 15
-#}
+tztime local {
+        # format = "%Y-%m-%d %H:%M:%S"
+        #format = " %d.%m.%Y  %H:%M "
+        format = "%a, %d %b. %H:%M " 
+	separator_block_width = 15
+	separator = false
+}
 #
 #pomodoro {
 #	display_bar = False
@@ -105,7 +106,7 @@ weather_yahoo {
 	icon_rain = ''
 	icon_sun = ''
 	icon_snow = ''
-#	separator = false
+	separator = false
 	separator_block_width = 15
 }
 #
@@ -164,11 +165,11 @@ battery_level {
 	hide_when_full = True
 }
 #
-clock {
-        format_time = "%a, %d %b. %H:%M" 
-	separator = false
-	separator_block_width = 15
-}
+#clock {
+#        format_time = "%a, %d %b. %H:%M" 
+#	separator = false
+#	separator_block_width = 15
+#}
 #
 imap { 
 	format = '{unseen}'

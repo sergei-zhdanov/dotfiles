@@ -41,7 +41,9 @@ export TERMINAL=termite
 export BROWSER=qutebrowser
 #export PS1='> '
 
+export PATH=$PATH:/home/sergei/.gem/ruby/2.5.0/bin;
 export PATH=$PATH:/home/sergei/.npm-global/bin;
+
 xmodmap -e "keycode 12 = 3 numbersign 3 apostrophe"
 
 # mutt background fix
