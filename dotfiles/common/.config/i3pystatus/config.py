@@ -36,7 +36,7 @@ status.register("shell",
 # Tue 30 Jul 11:59:46 PM KW31
 #                          ^-- calendar week
 status.register("clock",
-    format="%a %-d %b. %H:%M",
+    format="%a, %-d %b. %H:%M",
     #"%a %-d %b %X KW%V",)
     hints = {"separator": False, "separator_block_width": 15},
     )
